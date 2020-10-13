@@ -1,8 +1,7 @@
 #Codigos nucleares Powershell by soyYosoyYo 
 $browser = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 $user = $env:USERPROFILE
-$fichero = $user + "\Desktop\ricura.txt"
-$ficheroH = $user + "\Desktop\ricura.txt.history"
+$fichero = $user + "\Desktop\nukes.txt"
 $nhentai = " nhentai.net/g/"
 $hitomila = " hitomi.la/galleries/"
 $html = ".html"
@@ -17,7 +16,6 @@ function EsNumerico($valor) {
 
 #Quitar los espacios al principio/final de las lineas, lineas duplicadas y en blanco.
 $contenido = Get-Content $fichero | Where-Object {$_ -ne ""}|ForEach-Object {$_.Trim()}| Sort-Object -Unique
-Write-Output $contenido| Add-Content $ficheroH
 #esto es inecesario se puede quitar
 Write-Output $contenido| Set-Content $fichero
 #acumulador
