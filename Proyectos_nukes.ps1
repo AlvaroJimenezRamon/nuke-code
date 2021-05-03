@@ -1,9 +1,8 @@
 #Codigos nucleares Powershell by soyYosoyYo 
-$browser = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 $user = $env:USERPROFILE
 $fichero = $user + "\Desktop\nukes.txt"
-$nhentai = " nhentai.net/g/"
-$hitomila = " hitomi.la/galleries/"
+$nhentai = "http://nhentai.net/g/"
+$hitomila = "http://hitomi.la/galleries/"
 $html = ".html"
 $search = "https://www.google.com/search?&q="
 
@@ -25,13 +24,12 @@ Write-Output $contenido | ForEach-Object {
     # Si es un numero
     if ( EsNumerico($_)) {
         if (($_).length -gt 6) {
-
-            & $browser "$hitomila$_$html" 
-        }else {        
-            & $browser "$nhentai$_"
+            Start-Process "$hitomila$_$html" 
+        }else {                    
+            Start-Process "$nhentai$_"
         }             
     }else {
-        & $browser "$search$_ hentai"
+        Start-Process "$search$_ hentai"
     }
     #aumentamos acumulador
     $conta = $conta + 1
